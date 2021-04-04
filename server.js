@@ -6,7 +6,7 @@ var express = require('express'),
   port = process.env.PORT || 4000;
 
 var fetch = require('node-fetch');
-var SECRET_KEY = "put secret key here";
+var SECRET_KEY = "put secret here";
 
 // enable CORS using npm package
 var cors = require('cors');

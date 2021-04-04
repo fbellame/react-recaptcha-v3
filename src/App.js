@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from 'react';
 
+import Container from 'react-bootstrap/Container';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+
 import './App.css';
 
 const SITE_KEY = "put site key here";
@@ -64,20 +68,20 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <h3>reCAPTCHA v3 in React - <a href="https://www.cluemediator.com/" target="_blank" rel="noopener noreferrer">Clue Mediator</a></h3>
-      <div className="box">
-        <label>Name: </label>
-        <input type="text" onChange={e => setName(e.target.value)} value={name} />
-      </div>
-      <div className="box">
-        <label>Email: </label>
-        <input type="text" onChange={e => setEmail(e.target.value)} value={email} />
-      </div>
-      <button onClick={handleOnClick} disabled={loading}>{loading ? 'Submitting...' : 'Submit'}</button>
+    <Container className="p-3">
+      <Form>
+      <h3>reCAPTCHA v3 in React with Express for backend</h3>
+      <Form.Label>Nom</Form.Label>
+      <Form.Control type="name" placeholder="Entrez le nom" onChange={e => setName(e.target.value)} value={name} />
+
+      <Form.Label>Courriel</Form.Label>
+      <Form.Control type="name" placeholder="Entrez le courriel" onChange={e => setEmail(e.target.value)} value={email} />
+
+      <Button onClick={handleOnClick} disabled={loading} variant="primary">{loading ? 'en cours...' : 'Soumettre'}</Button>{' '}
       <br /><br />
       {response && <label>Output:<br /><pre>{JSON.stringify(response, undefined, 2)}</pre></label>}
-    </div>
+      </Form>
+    </Container>
   );
 }
 
